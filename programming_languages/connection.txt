@@ -1,0 +1,2 @@
+ssh sm1970@linus.unh.edu
+sm1970

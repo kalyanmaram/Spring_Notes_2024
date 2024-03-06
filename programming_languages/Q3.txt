@@ -1,0 +1,73 @@
+3) [1½ pts] How does the Python language complicate question #2. (a) Discuss clearly
+and (b) give several examples.
+
+Python language can complicate question #2 in several ways.
+
+a) Indentation : Unlike Perl, where we use braces {} to denote blocks of code, Python, we use identation. This means that the structure of the code is determined by whitespace, which is difficult to represent in BNF. BNF is suited for language where we use block delimiters like braces{}
+Optional Semicolons : In Perl, we need to use semicolons at the end of each statements. However, in Python, We don't need to use semicolons as the end of statements. 
+Strict Typing and Automatic Type Conversion : Python is a strongly typed language, which means that the type of a variable is enforced. We cannot perform operations that are not compatible with the variable type without explicit conversion. On the other hand, Perl is more lenient with types. It automatically converts strings to numbers when necessary.
+b) In Python
+# Indentation
+if x > 0:
+    print("X greater than zero)  # statement is part of if block due to identation
+
+# Optional Semicolons
+a = 10
+b = 20
+# Strict typing 
+x = 1
+y = "2"
+# z = x + y  # This will raise a TypeError because Python is strongly typed
+
+# Correct way: explicit conversion is required
+z = x + int(y)
+print(z)  # This will print "3"
+
+In Perl
+# Braces for code 
+if($x>0){
+    print "X is greater than zero";  # statement is part of if block due to braces
+}
+
+# Mandatory Semicolons
+$a = 10;
+$b = 20;
+
+# lenient typing
+my $x = 1;
+my $y = "2";
+my $z = $x + $y;  # Perl automatically converts string to number
+print $z;  # This will print "3
+
+
+4) [1½ pts] Can the issue in #3 be (a) addressed in a BNF grammar and (b) if so give an
+example and if not give a counter example.
+
+The issues mentioned in #3, such as identation, optional semicolons and strict typing are difficult to address in BNF.
+
+Example : Optional Semicolons
+<statement> ::= <assignment> <semicolon>
+<assignment> ::= <var> = <expression>
+<semicolon> ::= ; | 
+
+Here, for the semicolon non-terminal can be ; or empty
+
+Counter Example : Indentation
+if condition:
+    statement1
+else:
+    statement2
+
+Here, the identation that determines the block of code in if-else strucutre in Python cannot be represented in BNF, as BNF is not capables of enforcing whitespace or identation rules.
+
+Counter Example : Braces
+if condition:
+    statement1
+
+Here, the absence of braces that would typically denote the block of code in the if statement cannot be represented in BNF, as BNf is not capable of enforcing whitespaces or identation rules.
+
+Example : Strict Typing
+<expression> ::= <term> + <term>
+<term> ::= <integer> | <string>
+
+Here, the BNF grammar allows for a string to be added to an integer, which would be invalid in Python. BNF cannot enforce the rule that the operands of the addition operation must be of the same type.

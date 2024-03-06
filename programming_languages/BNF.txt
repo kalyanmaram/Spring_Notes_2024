@@ -1,0 +1,34 @@
+<perl> ::= <code>
+<code> ::= <statement> ; | <statement> ; <code>
+<statement> ::= <var> = <type> ; | <print-statement> | <input-statement> | <chomp-statement> | <open-statement> | <read-file-loop> | <user-input-loop>
+
+<print-statement> ::= print <string> ; | print <var> ;
+<input-statement> ::= <var> = <STDIN>;
+<chomp-statement> ::= chomp <var>;
+<open-statement> ::= open(FILE,<var>);
+
+<read-file-loop> ::= while ( <condition> ) { <chomp-statement> <split-statement> <hash-assignment> }
+<split-statement> ::= 
+<hash-assignment> ::=
+
+<user-input-loop> ::= while ( <condition> ) { <print-statement> <input-statement> <chomp-statement> <if-statement> }
+
+<if-statement> ::= if ( <var> <operator> <var> ) { 
+                        <print-statement> 
+                        <input-statement> 
+                        <chomp-statement> 
+                        <print-statement>
+                    } elseif ( <var> <operator> <var> ) { 
+                        <print-statement> 
+                        <input-statement> 
+                        <chomp-statement> 
+                        <print-statement> 
+                    } elseif ( <var> <operator> <var> ) { 
+                        <print-statement> 
+                        last;
+                    }
+
+<condition> ::= <var> = <FILE> | <var> <operator> <var> | <number> <operator> <number>
+<operator> ::= < | > | == | != | eq | ne | >= | <= 
+<var> ::= $ <identifier> | @ <identifier> 
+<type> ::= <string> | <number> 
